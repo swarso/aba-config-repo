@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: auth-server
+  cloud:
+    config:
+      uri: http://localhost:8105
+      fail-fast: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # issuer-uri se usa si quieres validar JWT emitidos por ti mismo
+          issuer-uri: http://localhost:8000
+
+server:
+  port: 8000
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: DEBUG
+
+oauth2:
+  clients:
+    service-client:
+      client-id: service-client
+      client-secret: secret
+      scope: service.read
+      authorized-grant-type: client_credentials
