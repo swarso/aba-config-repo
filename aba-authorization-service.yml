@@ -1,6 +1,6 @@
 spring:
   application:
-    name: auth-server
+    name: aba-authorization-service
   cloud:
     config:
       uri: http://localhost:8105
