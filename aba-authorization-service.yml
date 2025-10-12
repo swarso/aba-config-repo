@@ -8,8 +8,7 @@ spring:
   security:
     oauth2:
       resourceserver:
-        jwt:
-          # issuer-uri se usa si quieres validar JWT emitidos por ti mismo
+        jwt:          
           issuer-uri: http://localhost:8000
 
 server:
