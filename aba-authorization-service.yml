@@ -1,14 +1,16 @@
 spring:
   application:
     name: aba-authorization-service
+
   cloud:
     config:
       uri: http://localhost:8105
       fail-fast: true
+
   security:
     oauth2:
       resourceserver:
-        jwt:          
+        jwt:
           issuer-uri: http://localhost:8000
 
 server:
@@ -19,10 +21,17 @@ logging:
     org.springframework.security: INFO
     org.springframework.security.oauth2: DEBUG
 
-oauth2:
-  clients:
-    service-client:
-      client-id: service-client
-      client-secret: secret
-      scope: service.read
-      authorized-grant-type: client_credentials
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          service-client:
+            client-id: service-client
+            client-secret: secret
+            scope: service.read
+            authorization-grant-type: client_credentials
+            provider: local-provider
+        provider:
+          local-provider:
+            token-uri: http://localhost:8000/oauth2/token
