@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: aba-gateway-service
+  security:
+    enabled: false
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8161/eureka/
+    registerWithEureka: true
+    fetchRegistry: true    
+    healthcheck:
+      enabled: true
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 15
+    preferIpAddress: true   
