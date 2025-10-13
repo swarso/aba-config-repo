@@ -1,6 +1,27 @@
 server:
   port: 8161
 
+spring:
+  application:
+    name: eureka-service
+
+  cloud:
+    config:
+      uri: http://localhost:8105        
+      name: eureka-service              
+      profile: default
+      oauth2:
+        client-id: eureka-service       
+        client-secret: ZXVyZWthLXNlcnZpY2U=
+        token-uri: http://localhost:8000/oauth2/token
+        grant-type: client_credentials
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8000/oauth2/jwks
+
 eureka:
   client:
     register-with-eureka: false
@@ -16,7 +37,3 @@ management:
   endpoint:
     health:
       show-details: always
-
-spring:
-  security:
-    enabled: false
