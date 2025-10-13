@@ -12,7 +12,7 @@ spring:
       profile: default
       oauth2:
         client-id: eureka-service       
-        client-secret: ZXVyZWthLXNlcnZpY2U=
+        client-secret: YWJhLWV1cmVrYS1zZXJ2aWNl
         token-uri: http://localhost:8000/oauth2/token
         grant-type: client_credentials
 
