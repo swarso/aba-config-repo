@@ -5,16 +5,17 @@ spring:
   application:
     name: eureka-service
 
-  config:
-    import: "optional:configserver:http://localhost:8105"
-    oauth2:
-      client:
-        registration:
-          eureka-service:
-            client-id: eureka-service
-            client-secret: YWJhLWV1cmVrYS1zZXJ2aWNl
-            authorization-grant-type: client_credentials
-            token-uri: http://localhost:8000/oauth2/token
+  cloud:
+    config:
+      uri: http://localhost:8105
+      name: eureka-service
+      profile: default
+      oauth2:
+        client:
+          client-id: eureka-service
+          client-secret: YWJhLWV1cmVrYS1zZXJ2aWNl
+          grant-type: client_credentials
+          token-uri: http://localhost:8000/oauth2/token
 
   security:
     oauth2:
@@ -42,4 +43,3 @@ logging:
   level:
     org.springframework.cloud.config: DEBUG
     org.springframework.security: DEBUG
-    org.springframework.web.client.RestTemplate: DEBUG
