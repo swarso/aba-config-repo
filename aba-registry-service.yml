@@ -9,8 +9,6 @@ spring:
     import: "optional:configserver:http://localhost:8105"
     name: eureka-service
     profile: default
-
-  security:
     oauth2:
       client:
         registration:
@@ -23,6 +21,8 @@ spring:
           eureka-service:
             token-uri: http://localhost:8000/oauth2/token
 
+  security:
+    oauth2:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:8000/oauth2/jwks
