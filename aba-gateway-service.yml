@@ -7,8 +7,20 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false
           lower-case-service-id: true
+    routes:
+      - id: aba-authentication-service
+        uri: lb://aba-authentication-service
+        predicates:
+          -  Path=/auth/**,/user/**
+    globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      
 eureka:
   client:
     serviceUrl:
@@ -21,6 +33,9 @@ eureka:
     leaseRenewalIntervalInSeconds: 5
     leaseExpirationDurationInSeconds: 15
     preferIpAddress: true
+
+jwt:
+  secret: f8c2d6b3de83a72a3584c29fd29cc29fc91423736e21ea0450d0b6fb6e9e29bf
 
 server:
   port: 8184
