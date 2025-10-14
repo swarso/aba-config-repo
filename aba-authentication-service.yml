@@ -1,1 +1,28 @@
-d
+server:
+  port: 8182
+
+spring:
+  application:
+    name: aba-authentication-service
+  datasource:
+    url: ${datasource.url}
+    username : aba
+    password: aba
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+jwt:
+  secret: f8c2d6b3de83a72a3584c29fd29cc29fc91423736e21ea0450d0b6fb6e9e29bf
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8161/eureka
