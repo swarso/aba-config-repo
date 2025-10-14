@@ -3,13 +3,7 @@ server:
 
 spring:
   application:
-    name: eureka-service
-
-  cloud:
-    config:
-      import: "optional:configserver:http://localhost:8105"
-      name: eureka-service
-      profile: default     
+    name: aba-registry-service
 
 eureka:
   client:
