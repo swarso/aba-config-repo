@@ -9,26 +9,28 @@ spring:
         locator:
           enabled: false
           lower-case-service-id: true
-    routes:
-      - id: ABA-AUTHENTICATION-SERVICE
-        uri: lb://ABA-AUTHENTICATION-SERVICE
-        predicates:
-          - Path=/auth/**
-          - Path=/user/**      
-          
+      routes:
+        - id: aba-auth-auth
+          uri: lb://ABA-AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/auth/**
+        - id: aba-auth-user
+          uri: lb://ABA-AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/user/**
     globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
-      
+      corsConfigurations:
+        '[/**]':
+          allowedOrigins: "*"
+          allowedMethods: "*"
+          allowedHeaders: "*"
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8161/eureka/
     registerWithEureka: true
-    fetchRegistry: true    
+    fetchRegistry: true
     healthcheck:
       enabled: true
   instance:
