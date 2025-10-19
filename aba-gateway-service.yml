@@ -13,8 +13,7 @@ spring:
       - id: aba-authentication-service
         uri: lb://aba-authentication-service
         predicates:
-          -  Path=/auth/**
-          -  Path=/user/**
+          - Path=/auth/**,/user/**
     globalcors:
         corsConfigurations:
           '[/**]':
