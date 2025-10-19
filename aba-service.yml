@@ -1,0 +1,33 @@
+server:
+  port: 8183
+
+spring:
+  application:
+    name: aba-service
+  datasource:
+    url: jdbc:postgresql://localhost:5437/aba
+    username : aba
+    password: aba
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+jwt:
+  secret: f8c2d6b3de83a72a3584c29fd29cc29fc91423736e21ea0450d0b6fb6e9e29bf
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8161/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 15
+    preferIpAddress: true
