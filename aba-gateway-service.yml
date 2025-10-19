@@ -10,10 +10,14 @@ spring:
           enabled: false
           lower-case-service-id: true
     routes:
-      - id: aba-authentication-service
+      - id: aba-authentication-auth
         uri: lb://aba-authentication-service
         predicates:
-          - Path=/auth/**,/user/**
+          - Path=/auth/**
+      - id: aba-authentication-user
+        uri: lb://aba-authentication-service
+        predicates:
+          - Path=/user/**
     globalcors:
         corsConfigurations:
           '[/**]':
