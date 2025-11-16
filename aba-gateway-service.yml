@@ -13,21 +13,21 @@ spring:
         - id: aba-auth-auth
           uri: lb://ABA-AUTHENTICATION-SERVICE
           predicates:
-            - Path=/auth/**
+            - Path=/api/aba/auth/**
         - id: aba-auth-user
           uri: lb://ABA-AUTHENTICATION-SERVICE
           predicates:
-            - Path=/user/**
+            - Path=/api/aba/user/**
         - id: aba-report-service
           uri: lb://ABA-REPORT-SERVICE
           predicates:
-            - Path=/api/report/**
+            - Path=/api/aba/report/**
           filters:
             - AuthenticationFilter
         - id: aba-service
           uri: lb://ABA-SERVICE
           predicates:
-            - Path=/api/aba/**
+            - Path=/api/aba/service/**
           filters:
             - AuthenticationFilter
           
