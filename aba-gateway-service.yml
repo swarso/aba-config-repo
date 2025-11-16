@@ -30,7 +30,7 @@ spring:
             - Path=/api/aba/service/**
           filters:
             - AuthenticationFilter
-        - id: aba-file
+        - id: aba-file-service
           uri: lb://ABA-FILE-SERVICE
           predicates:
             - Path=/api/aba/file/**
