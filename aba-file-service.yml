@@ -16,6 +16,6 @@ eureka:
 
 file:
   nfs:
-    path: /mnt/nfs   # ruta dentro del contenedor file-service
+    path: /mnt/nfs
   thumbnail:
     size: 300
