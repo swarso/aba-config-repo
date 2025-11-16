@@ -18,6 +18,10 @@ spring:
           uri: lb://ABA-AUTHENTICATION-SERVICE
           predicates:
             - Path=/user/**
+        - id: aba-report-service
+          uri: lb://ABA-REPORT-SERVICE
+          predicates:
+            - Path=/api/**
         - id: aba-service
           uri: lb://ABA-SERVICE
           predicates:
