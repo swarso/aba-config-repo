@@ -30,6 +30,12 @@ spring:
             - Path=/api/aba/service/**
           filters:
             - AuthenticationFilter
+        - id: aba-file
+          uri: lb://ABA-FILE
+          predicates:
+            - Path=/api/aba/file/**
+          filters:
+            - AuthenticationFilter
           
     globalcors:
       corsConfigurations:
