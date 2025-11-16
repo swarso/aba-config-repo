@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: aba-file-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8161/eureka
+
+file:
+  nfs:
+    path: /mnt/nfs   # ruta dentro del contenedor file-service
+  thumbnail:
+    size: 300
