@@ -21,7 +21,7 @@ spring:
         - id: aba-report-service
           uri: lb://ABA-REPORT-SERVICE
           predicates:
-            - Path=/api/aba/report/**
+            - Path=/api/report/**
           filters:
             - AuthenticationFilter
         - id: aba-service
