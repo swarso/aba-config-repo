@@ -23,6 +23,6 @@ eureka:
 
 file:
   nfs:
-    path: /mnt/nfs
+    path: /data
   thumbnail:
     size: 300
